@@ -22,16 +22,14 @@ const Register = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
-    // Clear messages when user starts typing
+   
     if (error) setError('');
     if (success) setSuccess('');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Validation
-    if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
+     if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
       setError('Please fill in all fields');
       return;
     }
@@ -63,8 +61,6 @@ const Register = () => {
       
       if (response.data.success) {
         setSuccess('Registration successful! Redirecting to login...');
-        
-        // Redirect to login after 2 seconds
         setTimeout(() => {
           navigate('/login');
         }, 2000);
@@ -80,8 +76,7 @@ const Register = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 animate-fadeIn">
       <div className="max-w-md w-full">
-        {/* Header Section with MERN Logo */}
-        <div className="text-center mb-8">
+       <div className="text-center mb-8">
           <div className="flex justify-center mb-6">
             <MERNTextLogo className="animate-fadeIn" />
           </div>
@@ -91,17 +86,13 @@ const Register = () => {
           <p className="mt-2 text-sm text-gray-600">
             Create your account to get started with amazing opportunities
           </p>
-          
-          {/* Tech Stack Badges */}
           <div className="flex justify-center mt-6">
             <TechStackBadges className="animate-slideIn" />
           </div>
         </div>
-        
-        {/* Form Card */}
         <div className="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl border border-white/20 p-8 hover-lift">
           <form className="space-y-6" onSubmit={handleSubmit}>
-            {/* Full Name Input */}
+            
             <div className="animate-slideIn">
               <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
                 Full Name
@@ -125,8 +116,6 @@ const Register = () => {
                 />
               </div>
             </div>
-            
-            {/* Email Input */}
             <div className="animate-slideIn" style={{ animationDelay: '0.1s' }}>
               <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
                 Email Address
@@ -150,9 +139,7 @@ const Register = () => {
                 />
               </div>
             </div>
-            
-            {/* Password Input */}
-            <div className="animate-slideIn" style={{ animationDelay: '0.2s' }}>
+             <div className="animate-slideIn" style={{ animationDelay: '0.2s' }}>
               <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
                 Password
               </label>
@@ -188,8 +175,6 @@ const Register = () => {
                 </button>
               </div>
             </div>
-            
-            {/* Confirm Password Input */}
             <div className="animate-slideIn" style={{ animationDelay: '0.3s' }}>
               <label htmlFor="confirmPassword" className="block text-sm font-semibold text-gray-700 mb-2">
                 Confirm Password
@@ -226,8 +211,6 @@ const Register = () => {
                 </button>
               </div>
             </div>
-
-            {/* Error Message */}
             {error && (
               <div className="animate-slideIn bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl text-sm">
                 <div className="flex items-center">
@@ -238,9 +221,7 @@ const Register = () => {
                 </div>
               </div>
             )}
-
-            {/* Success Message */}
-            {success && (
+             {success && (
               <div className="animate-slideIn bg-green-50 border border-green-200 text-green-600 px-4 py-3 rounded-xl text-sm">
                 <div className="flex items-center">
                   <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -251,8 +232,7 @@ const Register = () => {
               </div>
             )}
 
-            {/* Submit Button */}
-            <div className="animate-slideIn" style={{ animationDelay: '0.4s' }}>
+           <div className="animate-slideIn" style={{ animationDelay: '0.4s' }}>
               <button
                 type="submit"
                 disabled={loading}
@@ -276,9 +256,7 @@ const Register = () => {
                 )}
               </button>
             </div>
-
-            {/* Sign In Link */}
-            <div className="text-center animate-slideIn" style={{ animationDelay: '0.5s' }}>
+          <div className="text-center animate-slideIn" style={{ animationDelay: '0.5s' }}>
               <span className="text-sm text-gray-600">
                 Already have an account?{' '}
                 <Link

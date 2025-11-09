@@ -10,24 +10,10 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          {/* Landing Page */}
           <Route path="/" element={<LandingPage />} />
-          
-          {/* Public Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          
-          {/* Protected Routes */}
-          <Route 
-            path="/dashboard" 
-            element={
-              <PrivateRoute>
-                <Dashboard />
-              </PrivateRoute>
-            } 
-          />
-          
-          {/* Catch all - redirect to landing */}
+          <Route  path="/dashboard" element={<PrivateRoute> <Dashboard /></PrivateRoute> } />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

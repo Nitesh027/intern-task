@@ -9,13 +9,10 @@ const Profile = () => {
   useEffect(() => {
     const loadUserData = async () => {
       try {
-        // Get user from localStorage
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
           setUser(JSON.parse(storedUser));
         }
-
-        // Fetch job statistics
         const jobCountResponse = await axiosInstance.get('/jobs/count');
         if (jobCountResponse.data.success) {
           setJobStats({ totalJobs: jobCountResponse.data.jobCount });
@@ -48,7 +45,6 @@ const Profile = () => {
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      {/* Profile Header */}
       <div className="card">
         <div className="flex items-center space-x-6">
           <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
@@ -64,9 +60,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-
-      {/* Statistics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="card bg-gradient-to-r from-blue-500 to-blue-600 text-white">
           <div className="text-center">
             <div className="text-3xl font-bold">{jobStats.totalJobs}</div>
@@ -88,9 +82,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-
-      {/* Profile Details */}
-      <div className="card">
+     <div className="card">
         <h3 className="text-2xl font-bold text-gray-800 mb-6">Profile Information</h3>
         
         <div className="space-y-6">
@@ -134,7 +126,7 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* Activity Summary */}
+      
       <div className="card">
         <h3 className="text-2xl font-bold text-gray-800 mb-6">Activity Summary</h3>
         

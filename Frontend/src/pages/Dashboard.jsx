@@ -23,12 +23,8 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex animate-fadeIn">
-      {/* Sidebar */}
       <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
-      
-      {/* Main Content */}
       <div className="flex-1 md:ml-0">
-        {/* Modern Header */}
         <header className="bg-white/70 backdrop-blur-lg shadow-lg border-b border-white/20 px-6 py-5">
           <div className="flex justify-between items-center">
             <div className="animate-slideIn">
@@ -45,8 +41,6 @@ const Dashboard = () => {
                     {activeSection === 'analytics' && 'View detailed analytics and insights'}
                   </p>
                 </div>
-                
-                {/* MERN Tech Stack Indicator */}
                 <div className="hidden lg:block">
                   <TechStackBadges />
                 </div>
@@ -54,7 +48,6 @@ const Dashboard = () => {
             </div>
             
             <div className="flex items-center space-x-4 animate-slideIn" style={{ animationDelay: '0.2s' }}>
-              {/* Notification Bell */}
               <div className="relative">
                 <button className="p-2 rounded-xl bg-white/50 hover:bg-white/80 transition-all duration-200 hover-lift">
                   <svg className="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -63,8 +56,6 @@ const Dashboard = () => {
                   <span className="absolute -top-1 -right-1 h-3 w-3 bg-red-500 rounded-full animate-pulse"></span>
                 </button>
               </div>
-              
-              {/* User Info */}
               <div className="text-right">
                 <div className="text-sm font-semibold text-gray-800">
                   Welcome back, {JSON.parse(localStorage.getItem('user') || '{}').name || 'User'}!
@@ -79,7 +70,6 @@ const Dashboard = () => {
                 </div>
               </div>
               
-              {/* Profile Avatar */}
               <div className="relative">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg hover-lift cursor-pointer">
                   <span className="text-lg font-bold text-white">
@@ -92,7 +82,7 @@ const Dashboard = () => {
           </div>
         </header>
         
-        {/* Content Area with modern styling */}
+        
         <main className="p-6 animate-fadeIn" style={{ animationDelay: '0.3s' }}>
           <div className="max-w-7xl mx-auto">
             <div className="bg-white/60 backdrop-blur-lg rounded-3xl shadow-xl border border-white/20 p-8 hover-lift">

@@ -1,18 +1,5 @@
 import { useState, useEffect } from 'react';
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  PieChart,
-  Pie,
-  Cell,
-  LineChart,
-  Line,
-  ResponsiveContainer
+import {BarChart,Bar,XAxis,YAxis,CartesianGrid,Tooltip,Legend,PieChart,Pie,Cell,LineChart,Line,ResponsiveContainer
 } from 'recharts';
 import axiosInstance from '../api/axiosInstance';
 
@@ -20,7 +7,7 @@ const CustomerAnalysis = () => {
   const [realJobCount, setRealJobCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  // Dummy data for charts
+  
   const monthlyApplicationsData = [
     { month: 'Jan', applications: 45, interviews: 12 },
     { month: 'Feb', applications: 52, interviews: 18 },
@@ -48,7 +35,7 @@ const CustomerAnalysis = () => {
   useEffect(() => {
     const fetchAnalyticsData = async () => {
       try {
-        // Get real job count from API
+        
         const jobCountResponse = await axiosInstance.get('/jobs/count');
         if (jobCountResponse.data.success) {
           setRealJobCount(jobCountResponse.data.jobCount);
@@ -79,9 +66,7 @@ const CustomerAnalysis = () => {
         <h2 className="text-3xl font-bold text-gray-800 mb-2">Customer Analysis Dashboard</h2>
         <p className="text-gray-600">Comprehensive analytics and insights for job postings and applications</p>
       </div>
-
-      {/* Key Metrics */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="card bg-gradient-to-r from-blue-500 to-blue-600 text-white">
           <div className="text-center">
             <div className="text-3xl font-bold">{realJobCount}</div>
@@ -114,9 +99,7 @@ const CustomerAnalysis = () => {
           </div>
         </div>
       </div>
-
-      {/* Charts Row 1 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Monthly Applications */}
         <div className="card">
           <h3 className="text-xl font-bold text-gray-800 mb-4">Monthly Applications & Interviews</h3>

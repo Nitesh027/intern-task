@@ -18,14 +18,14 @@ const Login = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
-    // Clear error when user starts typing
+    
     if (error) setError('');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Basic validation
+    
     if (!formData.email || !formData.password) {
       setError('Please fill in all fields');
       return;
@@ -43,11 +43,11 @@ const Login = () => {
       const response = await axiosInstance.post('/auth/login', formData);
       
       if (response.data.success) {
-        // Store token and user info in localStorage
+        
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
         
-        // Navigate to dashboard
+        
         navigate('/dashboard');
       }
     } catch (error) {
@@ -61,7 +61,7 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center py-12 px-4">
       <div className="max-w-md w-full">
-        {/* MERN Logo/Brand Section */}
+        
         <div className="text-center mb-8">
           <div className="flex justify-center mb-6">
             <MERNTextLogo className="animate-fadeIn" />
@@ -69,16 +69,16 @@ const Login = () => {
           <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-2">Welcome Back!</h1>
           <p className="text-gray-600">Sign in to your MERN Stack Portal</p>
           
-          {/* Tech Stack Badges */}
+          
           <div className="flex justify-center mt-6">
             <TechStackBadges className="animate-slideIn" />
           </div>
         </div>
 
-        {/* Login Card */}
+       
         <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Email Field */}
+            
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address
@@ -103,7 +103,7 @@ const Login = () => {
               </div>
             </div>
 
-            {/* Password Field */}
+           
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
                 Password

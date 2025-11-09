@@ -1,8 +1,5 @@
 import Job from '../models/Job.js';
 
-// @desc    Get all jobs for logged in user
-// @route   GET /api/jobs
-// @access  Private
 const getJobs = async (req, res) => {
     try {
         const jobs = await Job.find({ user: req.user._id })
@@ -22,10 +19,6 @@ const getJobs = async (req, res) => {
         });
     }
 };
-
-// @desc    Get single job
-// @route   GET /api/jobs/:id
-// @access  Private
 const getJob = async (req, res) => {
     try {
         const { id } = req.params;
@@ -40,7 +33,7 @@ const getJob = async (req, res) => {
             });
         }
 
-        // Check if job belongs to user
+        
         if (job.user._id.toString() !== req.user._id.toString()) {
             return res.status(401).json({
                 success: false,
@@ -61,9 +54,7 @@ const getJob = async (req, res) => {
     }
 };
 
-// @desc    Create new job
-// @route   POST /api/jobs
-// @access  Private
+
 const addJob = async (req, res) => {
     try {
         const { jobTitle, jobDescription, lastDate, companyName } = req.body;
@@ -87,7 +78,6 @@ const addJob = async (req, res) => {
 
         await job.save();
         
-        // Populate user data for response
         const populatedJob = await Job.findById(job._id).populate('user', 'name email');
 
         res.status(201).json({
@@ -103,9 +93,6 @@ const addJob = async (req, res) => {
     }
 };
 
-// @desc    Update job
-// @route   PUT /api/jobs/:id
-// @access  Private
 const updateJob = async (req, res) => {
     try {
         const { id } = req.params;
@@ -120,7 +107,7 @@ const updateJob = async (req, res) => {
             });
         }
 
-        // Check if job belongs to user
+        
         if (job.user.toString() !== req.user._id.toString()) {
             return res.status(401).json({
                 success: false,
@@ -151,13 +138,9 @@ const updateJob = async (req, res) => {
     }
 };
 
-// @desc    Delete job
-// @route   DELETE /api/jobs/:id
-// @access  Private
 const deleteJob = async (req, res) => {
     try {
         const { id } = req.params;
-        
         const job = await Job.findById(id);
         
         if (!job) {
@@ -167,7 +150,6 @@ const deleteJob = async (req, res) => {
             });
         }
 
-        // Check if job belongs to user
         if (job.user.toString() !== req.user._id.toString()) {
             return res.status(401).json({
                 success: false,
@@ -176,7 +158,6 @@ const deleteJob = async (req, res) => {
         }
 
         await Job.findByIdAndDelete(id);
-
         res.status(200).json({
             success: true,
             message: 'Job deleted successfully'
@@ -190,9 +171,6 @@ const deleteJob = async (req, res) => {
     }
 };
 
-// @desc    Get job count for user
-// @route   GET /api/jobs/count
-// @access  Private
 const getJobCount = async (req, res) => {
     try {
         const jobCount = await Job.countDocuments({ user: req.user._id });

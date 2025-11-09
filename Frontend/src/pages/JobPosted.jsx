@@ -30,7 +30,7 @@ const JobPosted = () => {
   }, []);
 
   const handleJobAdded = () => {
-    fetchJobs(); // Refresh the job list
+    fetchJobs(); 
   };
 
   const handleEditJob = (job) => {
@@ -38,7 +38,7 @@ const JobPosted = () => {
     setEditFormData({
       jobTitle: job.jobTitle,
       jobDescription: job.jobDescription,
-      lastDate: job.lastDate.split('T')[0], // Format date for input
+      lastDate: job.lastDate.split('T')[0], 
       companyName: job.companyName
     });
   };
@@ -49,7 +49,7 @@ const JobPosted = () => {
       
       if (response.data.success) {
         setEditingJob(null);
-        fetchJobs(); // Refresh the list
+        fetchJobs(); 
       }
     } catch (error) {
       console.error('Update failed:', error);
@@ -61,7 +61,7 @@ const JobPosted = () => {
     if (window.confirm('Are you sure you want to delete this job?')) {
       try {
         await axiosInstance.delete(`/jobs/${jobId}`);
-        fetchJobs(); // Refresh the list
+        fetchJobs(); 
       } catch (error) {
         console.error('Delete failed:', error);
         setError('Failed to delete job. Please try again.');
@@ -87,10 +87,7 @@ const JobPosted = () => {
 
   return (
     <div className="space-y-8">
-      {/* Job Form */}
       <JobForm onJobAdded={handleJobAdded} />
-
-      {/* Jobs List */}
       <div className="card">
         <h3 className="text-2xl font-bold text-gray-800 mb-6">Posted Jobs ({jobs.length})</h3>
         
@@ -111,7 +108,6 @@ const JobPosted = () => {
             {jobs.map((job) => (
               <div key={job._id} className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                 {editingJob === job._id ? (
-                  // Edit form
                   <div className="space-y-4">
                     <input
                       type="text"
@@ -156,7 +152,7 @@ const JobPosted = () => {
                     </div>
                   </div>
                 ) : (
-                  // Display mode
+                  
                   <div>
                     <div className="flex justify-between items-start mb-3">
                       <h4 className="text-xl font-semibold text-gray-800">{job.jobTitle}</h4>
