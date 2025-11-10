@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-12 mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand Section */}
+         
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-4 mb-4">
               <MERNLogo size="medium" />
@@ -24,7 +24,7 @@ const Footer = () => {
             <TechStackBadges />
           </div>
 
-          {/* Quick Links */}
+         
           <div>
             <h4 className="text-lg font-semibold mb-4 text-blue-400">Quick Links</h4>
             <ul className="space-y-2">
@@ -35,7 +35,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Technologies */}
+       
           <div>
             <h4 className="text-lg font-semibold mb-4 text-purple-400">Technologies</h4>
             <ul className="space-y-2">
@@ -59,7 +59,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Section */}
+      
         <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} MERN Job Portal. Built with ❤️ using the MERN Stack.

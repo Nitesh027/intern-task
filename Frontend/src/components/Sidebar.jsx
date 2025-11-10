@@ -7,7 +7,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Clear localStorage and navigate to login
+    
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     navigate('/login');
@@ -21,7 +21,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
 
   return (
     <>
-      {/* Modern Mobile menu button */}
+      
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="md:hidden fixed top-6 left-6 z-50 p-3 bg-white/80 backdrop-blur-lg text-gray-800 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-110"
@@ -35,7 +35,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
         </svg>
       </button>
 
-      {/* Overlay */}
+      
       {isOpen && (
         <div
           className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
@@ -43,7 +43,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
         />
       )}
 
-      {/* Modern Sidebar */}
+    
       <div className={`
         fixed md:static inset-y-0 left-0 z-50
         w-64 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white
@@ -52,8 +52,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
         ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
       `}>
         <div className="p-6">
-          {/* MERN Logo/Brand Section */}
-          <div className="text-center mb-8">
+         <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
               <MERNLogo size="large" className="animate-fadeIn" />
             </div>
@@ -63,7 +62,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
             <p className="text-xs text-gray-400 mt-1">MERN Stack Platform</p>
           </div>
           
-          {/* Navigation */}
+          
           <nav className="space-y-3">
             {sidebarItems.map((item, index) => (
               <button
@@ -99,7 +98,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
             ))}
           </nav>
             
-          {/* Logout button */}
+         
           <div className="mt-8">
             <button
               onClick={handleLogout}
@@ -115,7 +114,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
           </div>
         </div>
 
-        {/* User info at bottom */}
+      
         <div className="absolute bottom-0 w-full p-6 border-t border-gray-700/50 bg-gradient-to-t from-gray-900/50 to-transparent">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">

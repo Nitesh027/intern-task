@@ -12,14 +12,9 @@ const MERNLogo = ({ size = "large", className = "" }) => {
 
   return (
     <div className={`${sizeClasses.container} ${className} relative group cursor-pointer`}>
-      {/* Main Logo Container */}
-      <div className="w-full h-full bg-gradient-to-br from-green-500 via-blue-600 to-purple-700 rounded-2xl shadow-2xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-        
-        {/* Inner Glow Effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-        
-        {/* MERN Letters */}
-        <div className="relative z-10 text-center">
+     <div className="w-full h-full bg-gradient-to-br from-green-500 via-blue-600 to-purple-700 rounded-2xl shadow-2xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+     <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
+     <div className="relative z-10 text-center">
           <div className={`${sizeClasses.text} font-black text-white tracking-wider drop-shadow-lg`}>
             MERN
           </div>
@@ -28,12 +23,11 @@ const MERNLogo = ({ size = "large", className = "" }) => {
           </div>
         </div>
 
-        {/* Corner Accent */}
+   
         <div className="absolute top-1 right-1 w-3 h-3 bg-white/30 rounded-full"></div>
         <div className="absolute bottom-1 left-1 w-2 h-2 bg-white/20 rounded-full"></div>
       </div>
-
-      {/* Floating Elements Animation */}
+      
       <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-bounce opacity-80"></div>
       <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-pink-400 rounded-full animate-pulse opacity-60"></div>
     </div>
@@ -73,7 +67,7 @@ const TechStackBadges = ({ className = "" }) => {
           <span className="text-white font-black text-lg">{tech.name}</span>
           <span className="absolute -top-2 -right-1 text-sm">{tech.icon}</span>
           
-          {/* Tooltip */}
+     
           <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
             {tech.full}
           </div>

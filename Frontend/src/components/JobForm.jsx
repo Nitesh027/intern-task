@@ -17,7 +17,7 @@ const JobForm = ({ onJobAdded }) => {
       ...formData,
       [e.target.name]: e.target.value
     });
-    // Clear messages when user starts typing
+    
     if (error) setError('');
     if (success) setSuccess('');
   };
@@ -25,13 +25,13 @@ const JobForm = ({ onJobAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Validation
+    
     if (!formData.jobTitle || !formData.jobDescription || !formData.lastDate || !formData.companyName) {
       setError('Please fill in all fields');
       return;
     }
 
-    // Check if date is in the future
+    
     const selectedDate = new Date(formData.lastDate);
     const today = new Date();
     if (selectedDate <= today) {
@@ -48,7 +48,7 @@ const JobForm = ({ onJobAdded }) => {
       if (response.data.success) {
         setSuccess('Job posted successfully!');
         
-        // Reset form
+      
         setFormData({
           jobTitle: '',
           jobDescription: '',
@@ -56,12 +56,12 @@ const JobForm = ({ onJobAdded }) => {
           companyName: ''
         });
 
-        // Callback to parent component to refresh job list
+        
         if (onJobAdded) {
           onJobAdded();
         }
 
-        // Clear success message after 3 seconds
+        
         setTimeout(() => setSuccess(''), 3000);
       }
     } catch (error) {

@@ -1,14 +1,12 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  // 👇 Ye env variable se baseURL lega
   baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-// ✅ Token attach hone ke liye interceptor
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
@@ -20,7 +18,7 @@ axiosInstance.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// ✅ 401 error handle karne ke liye interceptor
+
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
